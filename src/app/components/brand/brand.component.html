@@ -1,4 +1,4 @@
-<table *ngIf="dataLoaded==true" class="table">
+<!--<table *ngIf="dataLoaded==true" class="table">
   <thead>
   <tr>
     <th>ID</th>
@@ -9,4 +9,12 @@
     <td>{{brand.id}}</td>
     <td>{{brand.brandName}}</td>
   </tr>
-</table>
+</table>-->
+
+<ul *ngIf="dataLoaded==true" class="list-group">
+  <h3>Brands</h3>
+  <li class="list-group-item" routerLink="/cars">All</li>
+  <li routerLink="/cars/brand/{{brand.id}}" class="list-group-item" *ngFor="let brand of brands">{{brand.brandName}}</li>
+</ul>
+
+<!--<h5 *ngIf="">{{currentCategory.categoryId + " " + currentCategory.categoryName}} seçildi.</h5>-->

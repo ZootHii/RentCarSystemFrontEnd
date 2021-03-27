@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Rental} from "../../models/rental/rental";
+import {RentalDetails} from "../../models/rental/rentalDetails";
+import {RentalService} from "../../services/rental/rental.service";
 
 @Component({
   selector: 'app-rental',
@@ -7,9 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RentalComponent implements OnInit {
 
-  constructor() { }
+  rentals: Rental[] = [];
+  rentalsDetails: RentalDetails[] = [];
 
-  ngOnInit(): void {
+  constructor(private rentalService: RentalService) {
   }
 
+  ngOnInit(): void {
+    this.getAllRentals();
+    this.getRentalsDetails();
+  }
+
+  getAllRentals() {
+    this.rentalService.getAllRentals().subscribe((response) => {
+      this.rentals = response.data;
+    });
+  }
+
+  getRentalsDetails() {
+    this.rentalService.getRentalsDetails().subscribe((response) => {
+      this.rentalsDetails = response.data;
+    });
+  }
 }

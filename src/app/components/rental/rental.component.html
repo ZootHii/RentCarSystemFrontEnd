@@ -1,1 +1,29 @@
-<p>rental works!</p>
+<table class="table">
+  <thead><h4>RENTALS DETAILS</h4></thead>
+  <tr *ngFor="let rentalDetails of rentalsDetails">
+    <td>{{rentalDetails.id}}</td>
+    <td>{{rentalDetails.carId}}</td>
+    <td>{{rentalDetails.brandName}}</td>
+    <td>{{rentalDetails.colorName}}</td>
+    <td>{{rentalDetails.modelYear | date: 'yyyy'}}</td>
+    <td>{{rentalDetails.description}}</td>
+    <td>{{rentalDetails.rentDate | date: 'yyyy/MM/dd'}}</td>
+    <td>{{rentalDetails.returnDate | date: 'yyyy/MM/dd'}}</td>
+    <td>{{rentalDetails.dailyPrice}}</td>
+    <td>{{rentalDetails.firstName}} {{rentalDetails.lastName}}</td>
+    <td>{{rentalDetails.eMail}}</td>
+    <td>{{rentalDetails.companyName}}</td>
+  </tr>
+</table>
+
+<table class="table">
+  <thead><h4>RENTALS</h4></thead>
+  <tr *ngFor="let rental of rentals">
+    <td>{{rental.id}}</td>
+    <td>{{rental.carId}}</td>
+    <td>{{rental.customerId}}</td>
+    <td>{{rental.customerId}}</td>
+    <td>{{rental.rentDate | date: 'yyyy/MM/dd'}}</td>
+    <td>{{rental.returnDate | date: 'yyyy/MM/dd'}}</td>
+  </tr>
+</table>

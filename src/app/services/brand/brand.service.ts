@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {BrandResponseModel} from "../../models/brand/brandResponseModel";
+import {DataResponseModel} from "../../models/dataResponseModel";
+import {Brand} from "../../models/brand/brand";
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class BrandService {
   constructor(private httpClient: HttpClient) {
   }
 
-  getAllBrands(): Observable<BrandResponseModel> {
-    return this.httpClient.get<BrandResponseModel>(this.apiUrl + "get/all");
+  getAllBrands(): Observable<DataResponseModel<Brand>> {
+    return this.httpClient.get<DataResponseModel<Brand>>(this.apiUrl + "get/all");
   }
 }

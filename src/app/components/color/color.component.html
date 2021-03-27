@@ -1,4 +1,4 @@
-<table *ngIf="dataLoaded==true" class="table">
+<!--<table *ngIf="dataLoaded==true" class="table">
   <thead>
   <tr>
     <th>ID</th>
@@ -9,4 +9,10 @@
     <td>{{color.id}}</td>
     <td>{{color.colorName}}</td>
   </tr>
-</table>
+</table>-->
+
+<ul *ngIf="dataLoaded==true" class="list-group">
+  <h3>Colors</h3>
+  <!--<li class="list-group-item" routerLink="/cars">All</li>-->
+  <li routerLink="/cars/color/{{color.id}}" class="list-group-item" *ngFor="let color of colors">{{color.colorName}}</li>
+</ul>

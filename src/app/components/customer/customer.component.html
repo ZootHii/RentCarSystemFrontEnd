@@ -1,1 +1,33 @@
-<p>customer works!</p>
+<table class="table">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>User ID</th>
+    <th>User Name</th>
+    <th>EMail</th>
+    <th>Company Name</th>
+  </tr>
+  </thead>
+  <tr *ngFor="let customersDetail of customersDetails">
+    <td>{{customersDetail.id}}</td>
+    <td>{{customersDetail.userId}}</td>
+    <td>{{customersDetail.firstName}} {{customersDetail.lastName}}</td>
+    <td>{{customersDetail.eMail}}</td>
+    <td>{{customersDetail.companyName}}</td>
+  </tr>
+</table>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>User ID</th>
+    <th>Company Name</th>
+  </tr>
+  </thead>
+  <tr *ngFor="let customer of customers">
+    <td>{{customer.id}}</td>
+    <td>{{customer.userId}}</td>
+    <td>{{customer.companyName}}</td>
+  </tr>
+</table>

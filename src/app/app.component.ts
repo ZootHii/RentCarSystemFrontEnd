@@ -9,6 +9,9 @@ export class AppComponent {
   title = 'rent-car-system-frontend';
 }
 
+
+// * model properties should be like in backend otherwise does not work -> in backend FirstName = firstName, UserId = userId, Id = id
+// * when your done with component html add it into app.component.html
 // 1. npm install -g @angular/cli
 // 2. C:\Users\ahmet\Desktop\WebstormProjects\angular-workspace\>ng new rent-car-system-frontend
 // 3. components, services, models directories added to app

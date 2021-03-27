@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {CustomerService} from "../../services/customer/customer.service";
+import {Customer} from "../../models/customer/customer";
+import {CustomerDetails} from "../../models/customer/customerDetails";
 
 @Component({
   selector: 'app-customer',
@@ -7,9 +10,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerComponent implements OnInit {
 
-  constructor() { }
+  customers: Customer[] = [];
+  customersDetails: CustomerDetails[] = [];
+
+  constructor(private customerService: CustomerService) {
+  }
 
   ngOnInit(): void {
+    this.getCustomersDetails();
+    this.getAllCustomers();
+  }
+
+  getAllCustomers() {
+    this.customerService.getAllCustomers().subscribe((response) => {
+      if (response.success) {
+        this.customers = response.data;
+      }
+    });
+  }
+
+  getCustomersDetails() {
+    this.customerService.getCustomersDetails().subscribe((response) => {
+      if (response.success) {
+        this.customersDetails = response.data;
+      }
+    });
   }
 
 }

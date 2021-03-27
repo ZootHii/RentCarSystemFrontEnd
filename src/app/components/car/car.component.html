@@ -1,1 +1,50 @@
-<p>car works!</p>
+
+<!--<img [src]="'data:image/jpg;base64,'+ image.imagePath"/>
+<video class="container" width="640" height="480" controls [src]="'data:video/mp4;base64,'+ image.imagePath"></video>
+  &lt;!&ndash;<video autoplay controls [src]="'data:video/mp4;base64,'+ image.imagePath">&ndash;&gt;-->
+
+<!--<table class="table">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Brand Name</th>
+    <th>Color Name</th>
+    <th>Model Year</th>
+    <th>Daily Price</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tr *ngFor="let carsDetail of carsDetails">
+    <td>{{carsDetail.id}}</td>
+    <td>{{carsDetail.brandName}}</td>
+    <td>{{carsDetail.colorName}}</td>
+    <td>{{carsDetail.modelYear | date:'yyyy'}}</td>
+    <td>{{carsDetail.dailyPrice}}$</td>
+    <td>{{carsDetail.description}}</td>
+  </tr>
+</table>-->
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Brand ID</th>
+    <th>Color ID</th>
+    <th>Model Year</th>
+    <th>Daily Price</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tr routerLink="/cars/details/{{car.id}}" *ngFor="let car of cars">
+    <td>{{car.id}}</td>
+    <td>{{car.brandId}}</td>
+    <td>{{car.colorId}}</td>
+    <td>{{car.modelYear | date:'yyyy'}}</td>
+    <td>{{car.dailyPrice}}$</td>
+    <td>{{car.description}}</td>
+  </tr>
+</table>
+
+<!--<ul class="list-group">
+  <li routerLink="/cars/details/{{car.id}}" class="list-group-item" *ngFor="let car of cars">{{car.modelYear}}</li>
+</ul>-->
