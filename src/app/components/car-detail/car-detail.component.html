@@ -1,0 +1,79 @@
+
+<!--<img width="288" height="162" *ngFor="let carImg of carImages" [src]="'data:image/png;base64,'+ carImg.imagePath"/>-->
+
+
+
+<!--<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="border: 1px solid black" >
+  <div class="carousel-inner">
+    <div *ngFor="let carImg of carImages first as firstImage" class="carousel-item" [ngClass]="{ active: firstImage }" style="text-align: center" >
+      <img [src]="'data:image/png;base64,'+ carImg.imagePath" alt="{{ carImg.id }}" width="480" height="360" />
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev" >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next" >
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>-->
+
+<div *ngIf="carDetailsByCarIdLoaded==true" class="container-fluid px-xxl-5 mt-2">
+  <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div *ngFor="let carImg of carImages first as firstCarImage" class="carousel-item" [ngClass]="{ active: firstCarImage }" style="text-align: center" >
+        <img [src]="'data:image/png;base64,'+ carImg.imagePath" alt="{{carImg.id}}" width="960" height="540" />
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    </button>
+  </div>
+  <div class="modal-footer mt-2">
+    <div class="modal-header">
+      <h2 class="modal-title">{{carDetailsByCarId.brandName}}</h2>
+    </div>
+    <div class="modal-body row">
+      <div class="col-5">
+        <h5>{{carDetailsByCarId.colorName}}</h5>
+        <h5>{{carDetailsByCarId.modelYear | date: 'YYYY'}}</h5>
+      </div>
+      <div class="col ms-4">
+        <p style="font-size:160%; color: darkslategrey;" class="align-content-center"><i>{{carDetailsByCarId.description}}</i></p>
+      </div>
+    </div>
+      <button (click)="valueService.isRentCarComponentActive=true" type="button" class="btn btn-dark">
+        <h6>Rent</h6>
+        <h6>Daily {{carDetailsByCarId.dailyPrice | currency}}</h6>
+      </button>
+  </div>
+  <div class="modal-footer"></div>
+
+  <app-rent-car *ngIf="valueService.isRentCarComponentActive==true" [carDetails]="carDetailsByCarId"></app-rent-car>
+
+</div>
+
+<!--<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div *ngFor="let carImg of carImages" class="col">
+    <div class="card" style="width: 303px;">
+      <img [src]="'data:image/png;base64,'+ carImg.imagePath" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">An item</li>
+        <li class="list-group-item">A second item</li>
+        <li class="list-group-item">A third item</li>
+      </ul>
+      <div class="card-body">
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
+      </div>
+    </div>
+  </div>
+</div>-->
+
+

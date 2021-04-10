@@ -1,17 +1,17 @@
-import {Component, OnInit} from '@angular/core';
-import {CarService} from "../../services/car.service";
+import { Component, OnInit } from '@angular/core';
 import {Car} from "../../models/car";
 import {CarDetails} from "../../models/car-details";
-import {ActivatedRoute} from "@angular/router";
-import {CarImageService} from "../../services/car-image.service";
 import {ValueService} from "../../services/value.service";
+import {CarService} from "../../services/car.service";
+import {CarImageService} from "../../services/car-image.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
-  selector: 'app-car',
-  templateUrl: './car.component.html',
-  styleUrls: ['./car.component.css']
+  selector: 'app-car-edit',
+  templateUrl: './car-admin.component.html',
+  styleUrls: ['./car-admin.component.css']
 })
-export class CarComponent implements OnInit {
+export class CarAdminComponent implements OnInit {
 
   cars: Car[];
   carsDetails: CarDetails[];
@@ -84,5 +84,6 @@ export class CarComponent implements OnInit {
       });
     });
   }
+
 
 }

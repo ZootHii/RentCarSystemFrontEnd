@@ -11,8 +11,12 @@
   </tr>
 </table>-->
 
-<ul *ngIf="dataLoaded==true" class="list-group">
-  <h3>Colors</h3>
-  <!--<li class="list-group-item" routerLink="/cars">All</li>-->
-  <li routerLink="/cars/color/{{color.id}}" class="list-group-item" *ngFor="let color of colors">{{color.colorName}}</li>
+<ul *ngIf="dataLoaded==true" class="list-group pt-2">
+  <!--<button type="button" class="btn btn-dark" disabled>Colors</button>-->
+  <h3><span class="badge rounded-pill bg-dark container-fluid modal-body">Colors</span></h3>
+  <div class="pt-2 pb-2">
+    <li routerLink="/cars/color/{{color.id}}" class="list-group-item shadow-sm" *ngFor="let color of colors">
+      <i><b>{{color.colorName}}</b></i>
+    </li>
+  </div>
 </ul>

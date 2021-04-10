@@ -1,0 +1,118 @@
+<!--[ngModel]="rentDate | date:'yyyy-MM-ddTHH:mm'"
+                (ngModelChange)="rentDate = $event"-->
+
+<!--[ngModel]="returnDate | date:'yyyy-MM-ddTHH:mm'"
+                (ngModelChange)="returnDate = $event"-->
+
+
+<div class="modal-content">
+  <div class="modal-header">
+    <div>
+      <h1 class="display-5 fw-bold">Rent The {{carDetails.brandName}}</h1>
+      <p class="ms-1" style="font-size: 77%; color: crimson">You can rent at least 2 hours.</p>
+    </div>
+    <button (click)="valueService.isRentCarComponentActive=false" type="button" class="btn-close" aria-label="Close"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="rentalForm">
+      <div class="row">
+        <label class="col">
+          <h5 class="fw-bold">Rent Date</h5>
+          <input
+            class="form-control"
+            id="rentDate"
+            type="datetime-local"
+            formControlName="rentDate"
+            min="{{todayAsString}}"
+          />
+        </label>
+        <label class="col">
+          <h5 class="fw-bold">Return Date</h5>
+          <input
+            class="form-control"
+            type="datetime-local"
+            formControlName="returnDate"
+            min="{{todayAsString}}"
+          />
+        </label>
+      </div>
+    </form>
+    <div [formGroup]="creditCardForm">
+      <div class="mb-3 mt-3">
+        <label><h5 class="fw-bold">Name On Card</h5></label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="nameOnCard"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label><h5 class="fw-bold">Card Number</h5></label>
+        <input
+          type="number"
+          class="form-control"
+          placeholder="0000-0000-0000-0000"
+          formControlName="cardNumber"
+          min="10000000000000"
+          max="99999999999999"
+          minlength="16"
+          maxlength="16"
+          required
+        />
+      </div>
+      <div class="row">
+        <div class="col mb-3">
+          <label><h5 class="fw-bold">Expiration Date</h5></label>
+          <div formGroupName="expirationDate" id="expiration-date-input" class="input-group">
+            <input
+              type="number"
+              class="form-control"
+              placeholder="Month"
+              formControlName="expirationMonth"
+              required
+              min="01"
+              max="12"
+            />
+            <span class="input-group-text">/</span>
+            <input
+              type="number"
+              class="form-control"
+              placeholder="Year"
+              formControlName="expirationYear"
+              required
+              min="{{today.getFullYear()}}"
+              max="2050"
+            />
+          </div>
+        </div>
+        <div class="col mb-3">
+          <label><h5 class="fw-bold">CVV</h5></label>
+          <input
+            type="password"
+            class="form-control"
+            placeholder="000"
+            formControlName="cvvNumber"
+            min="100"
+            minlength="3"
+            maxlength="3"
+            size="3"
+            required
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <!--<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+    <!--<p>rent     {{rentDate}}</p>
+    <p>return     {{returnDate}}</p>-->
+    <!--rent toplam parayı göster tarihleri ve carid ve user id yi gönder-->
+    <button (click)="setRental(getTotalPrice())" *ngIf="getDayDifference() && !isCarRented" type="button"
+            class="btn btn-dark">Rent {{getDayDifference()}} Days {{getTotalPrice() | currency}}</button>
+  </div>
+</div>
+<div class="modal-footer mt-4">
+</div>
+
+

@@ -1,0 +1,44 @@
+<div class="container">
+  <form [formGroup]="colorForm">
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-lg-10">
+          <input
+            class="form-control shadow"
+            id="colorName"
+            formControlName="colorName"
+            type="text"
+            placeholder="type here color name"
+          />
+        </div>
+        <div class="col-lg-2">
+          <button (click)="addColor()" type="button" class="btn btn-outline-success ms-2 shadow" style="font-size: 105%;">Add New Color</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <table *ngIf="dataLoaded==true" class="table align-middle table-hover">
+        <thead class="table-light">
+        <tr>
+          <th class="col-md-4">ID</th>
+          <th>Color Name</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let color of colors">
+          <td style="font-size: 110%;">{{color.id}}</td>
+          <td class="col-lg-6" style="font-size: 115%;"><i>{{color.colorName}}</i></td>
+          <td>
+            <button (click)="updateColor(color.id)" type="button" class="btn btn-outline-dark ms-2 shadow" style="font-size: 105%;">Update</button>
+            <button (click)="deleteColor(color.id)" type="button" class="btn btn-outline-danger ms-2 shadow" style="font-size: 105%;">Delete</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </form>
+</div>
+
+
+

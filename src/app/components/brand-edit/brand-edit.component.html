@@ -1,0 +1,43 @@
+<div class="container">
+  <form [formGroup]="brandForm">
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-lg-10">
+          <input
+            class="form-control shadow"
+            id="brandName"
+            formControlName="brandName"
+            type="text"
+            placeholder="type here brand name"
+          />
+        </div>
+        <div class="col-lg-2">
+          <button (click)="addBrand()" type="button" class="btn btn-outline-success ms-2 shadow" style="font-size: 105%;">Add New Brand</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <table *ngIf="dataLoaded==true" class="table align-middle table-hover">
+        <thead class="table-light">
+        <tr>
+          <th class="col-md-4">ID</th>
+          <th>Brand Name</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let brand of brands">
+          <td style="font-size: 110%;">{{brand.id}}</td>
+          <td class="col-lg-6" style="font-size: 115%;"><i>{{brand.brandName}}</i></td>
+          <td>
+            <button (click)="updateBrand(brand.id)" type="button" class="btn btn-outline-dark ms-2 shadow" style="font-size: 105%;">Update</button>
+            <button (click)="deleteBrand(brand.id)" type="button" class="btn btn-outline-danger ms-2 shadow" style="font-size: 105%;">Delete</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </form>
+</div>
+
+

@@ -1,0 +1,39 @@
+<div  class="row pt-2 pb-3">
+  <div class="col-sm-2 d-grid">
+    <h3><span class="badge rounded-pill bg-dark container-fluid modal-body">Filter Cars</span></h3>
+    <!--<button type="button" class="btn btn-dark" disabled>Filter Cars</button>-->
+  </div>
+  <div class="col-sm-5">
+    <div class="form-floating">
+      <select class="form-select shadow-sm" id="floatingSelect" aria-label="brands" [(ngModel)]="valueService.selectedBrandId">
+        <option [value]=0>All</option>
+        <option *ngFor="let brand of brands" [value]="brand.id">{{brand.brandName}}</option>
+      </select>
+      <label for="floatingSelect">Brands</label>
+    </div>
+  </div>
+  <div class="col-sm-5">
+    <div class="form-floating">
+      <select class="form-select shadow-sm" id="floatingSelect2" aria-label="colors" [(ngModel)]="valueService.selectedColorId">
+        <option [value]=0>All</option>
+        <option *ngFor="let color of colors" [value]="color.id">{{color.colorName}}</option>
+      </select>
+      <label for="floatingSelect2">Colors</label>
+    </div>
+  </div>
+</div>
+
+<!--<div class="form-floating">
+  <select class="form-select" id="floatingSelect3" aria-label="Floating label select example">
+    <option selected>Open this select menu</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+  </select>
+  <label for="floatingSelect">Works with selects</label>
+</div>-->
+
+
+
+<!--<p>You selected: {{valueService.selectedBrandId}}</p>
+<p>You selected: {{valueService.selectedColorId}}</p>-->

@@ -11,10 +11,15 @@
   </tr>
 </table>-->
 
-<ul *ngIf="dataLoaded==true" class="list-group">
-  <h3>Brands</h3>
-  <li class="list-group-item" routerLink="/cars">All</li>
-  <li routerLink="/cars/brand/{{brand.id}}" class="list-group-item" *ngFor="let brand of brands">{{brand.brandName}}</li>
+<ul *ngIf="dataLoaded==true" class="list-group pt-2">
+  <!--<button type="button" class="btn btn-dark" disabled>Brands</button>-->
+  <h3><span class="badge rounded-pill bg-dark container-fluid modal-body">Brands</span></h3>
+  <div class="pt-2 pb-2">
+    <li class="list-group-item shadow-sm" routerLink="/cars"><i><b>All</b></i></li>
+    <li routerLink="/cars/brand/{{brand.id}}" class="list-group-item shadow-sm" *ngFor="let brand of brands">
+      <i><b>{{brand.brandName}}</b></i>
+    </li>
+  </div>
 </ul>
 
 <!--<h5 *ngIf="">{{currentCategory.categoryId + " " + currentCategory.categoryName}} seçildi.</h5>-->

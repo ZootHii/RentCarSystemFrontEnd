@@ -30,3 +30,5 @@ export class AppComponent {
   // 8.2 add client into service constructor and import
   // 8.3 add apiUrl for service client
   // 8.4 add backend webAPI startup services.AddCors(); and app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader());
+// 9. 'npm install jquery' to make it work dropdown navbar bootstrap
+  // 9.1 "node_modules/jquery/dist/jquery.min.js", "node_modules/bootstrap/dist/js/bootstrap.min.js" add them to angular.json scripts[]

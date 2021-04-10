@@ -1,0 +1,141 @@
+<div *ngIf="carDetailsByCarId" class="px-sm-5 mt-4">
+  <h2>Edit Car</h2>
+</div>
+
+<div *ngIf="!carDetailsByCarId" class="px-sm-5 mt-4">
+  <h2>Add New Car</h2>
+</div>
+
+<div *ngIf="carDetailsByCarId" class="container-fluid px-xxl-5 mt-2">
+  <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div *ngFor="let carImg of carImages first as firstCarImage" class="carousel-item"
+           [ngClass]="{ active: firstCarImage }" style="text-align: center">
+        <img [src]="'data:image/png;base64,'+ carImg.imagePath" alt="{{carImg.id}}" width="960" height="540"/>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    </button>
+  </div>
+</div>
+
+<div class="modal-footer mt-4"></div>
+<div class="modal-body container-fluid px-xxl-5 mt-2">
+  <div class="row pt-2 pb-3">
+    <div class="col-sm-2 px-2">
+      <div class="form-floating">
+        <select class="form-select shadow-sm" id="floatingSelectBrand" aria-label="brand" [(ngModel)]="selectedBrandId">
+          <option *ngFor="let brand of brands" [value]="brand.id">{{brand.brandName}}</option>
+        </select>
+        <label for="floatingSelectBrand">Brand</label>
+      </div>
+    </div>
+    <div class="col-sm-2 px-2">
+      <div class="form-floating">
+        <select class="form-select shadow-sm" id="floatingSelectColor" aria-label="color" [(ngModel)]="selectedColorId">
+          <option *ngFor="let color of colors" [value]="color.id">{{color.colorName}}</option>
+        </select>
+        <label for="floatingSelectColor">Color</label>
+      </div>
+    </div>
+    <div class="col-sm-2 px-2">
+      <div class="form-floating">
+        <input
+          class="form-control shadow-sm"
+          type="number"
+          [(ngModel)]="selectedModelYear"
+          onKeyPress="if(this.value.length==4) return false;"
+          onkeyup="if(parseInt(this.value) < 2000 || !this.value){ this.value = 2000; return false; }"
+          id="modelYear"
+          min="2000"
+          maxlength="4"
+          minlength="4"
+          required
+          max="{{today.getFullYear()}}"
+        />
+        <label for="modelYear">Model Year</label>
+      </div>
+    </div>
+    <div class="col-sm-2 px-2">
+      <div class="form-floating">
+        <input
+          class="form-control shadow-sm"
+          type="number"
+          [(ngModel)]="selectedDailyPrice"
+          onKeyPress="if(this.value.length >= 5) return false;"
+          onkeyup="if(parseInt(this.value) < 0 || !this.value){ this.value = 0; return false; }"
+          id="dailyPrice"
+          min="0"
+          maxlength="5"
+          minlength="1"
+          required
+          max="25000"
+        />
+        <label for="dailyPrice">Daily Price</label>
+      </div>
+    </div>
+    <div class="col-sm-2 px-2">
+      <div class="form-floating">
+      <textarea
+        class="form-control shadow-sm"
+        type="text"
+        [(ngModel)]="selectedDescription"
+        onKeyPress="if(this.value.length >= 50) return false;"
+        id="description"
+        maxlength="50"
+        minlength="0"
+        required
+      ></textarea>
+        <label for="description">Description</label>
+      </div>
+    </div>
+    <div class="col-sm-2 ps-4">
+      <button *ngIf="carDetailsByCarId" (click)="updateCar(carDetailsByCarId.id)" type="button" class="btn btn-outline-dark ms-2 btn-lg shadow"
+              style="font-size: 135%;">Update
+      </button>
+      <button *ngIf="carDetailsByCarId" (click)="deleteCar(carDetailsByCarId.id)" type="button" class="btn btn-outline-danger ms-2 btn-lg shadow"
+              style="font-size: 135%;">Delete
+      </button>
+      <button *ngIf="!carDetailsByCarId" (click)="addCar()" type="button" class="btn btn-outline-success ms-2 btn-lg shadow"
+              style="font-size: 160%;">Add New Car
+      </button>
+    </div>
+  </div>
+</div>
+<div class="modal-footer pb-lg-5 mt-4"></div>
+
+
+
+
+<h2>{{selectedBrandId}}</h2>
+<h2>{{selectedColorId}}</h2>
+<h2>{{selectedDescription}}</h2>
+<h2>{{selectedModelYear}}</h2>
+<h2>{{selectedDailyPrice}}</h2>
+
+
+<!--<div class="modal-body">
+  <table *ngIf="dataLoaded==true" class="table align-middle table-hover">
+    <thead class="table-light">
+    <tr>
+      <th class="col-md-4">ID</th>
+      <th>Brand Name</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let brand of brands">
+      <td style="font-size: 110%;">{{brand.id}}</td>
+      <td class="col-lg-6" style="font-size: 115%;"><i>{{brand.brandName}}</i></td>
+      <td>
+        <button (click)="UpdateBrand(brand.id)" type="button" class="btn btn-outline-dark ms-2" style="font-size: 105%;">Update</button>
+        <button (click)="DeleteBrand(brand.id)" type="button" class="btn btn-outline-danger ms-2" style="font-size: 105%;">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>-->

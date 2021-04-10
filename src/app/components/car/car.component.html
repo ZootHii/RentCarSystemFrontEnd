@@ -24,7 +24,7 @@
   </tr>
 </table>-->
 
-<table class="table">
+<!--<table class="table">
   <thead>
   <tr>
     <th>ID</th>
@@ -43,8 +43,48 @@
     <td>{{car.dailyPrice}}$</td>
     <td>{{car.description}}</td>
   </tr>
-</table>
+</table>-->
 
 <!--<ul class="list-group">
   <li routerLink="/cars/details/{{car.id}}" class="list-group-item" *ngFor="let car of cars">{{car.modelYear}}</li>
 </ul>-->
+
+<!--<img [src]="'data:image/jpg;base64,'+ cardCarImage[1].imagePath">-->
+
+
+<div class="container-fluid px-xxl-5 mt-2">
+  <div class="row">
+    <div class="col-md-3">
+      <app-brand></app-brand>
+      <app-color></app-color>
+    </div>
+    <div class="col-md-9">
+      <app-car-filter></app-car-filter>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div *ngFor="let carDetail of carsDetails | carFilter: valueService.selectedBrandId:valueService.selectedColorId" class="col">
+          <div *ngIf="carDetail.carImagePathForCard" class="card shadow-sm">
+            <img  width="390" height="280" [src]="'data:image/jpg;base64,'+ carDetail.carImagePathForCard" class="card-img">
+            <div class="card-body shadow-sm">
+              <h4 class="card-title">{{carDetail.brandName}}</h4>
+              <p class="card-text"><i><b>{{carDetail.description}}</b></i></p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><b>• {{carDetail.colorName}}</b></li>
+              <li class="list-group-item">Model Year: <b>{{carDetail.modelYear | date: '• YYYY'}}</b></li>
+              <li class="list-group-item">Daily Price: <b>• {{carDetail.dailyPrice | currency}}</b></li>
+            </ul>
+            <div class="card-body d-grid gap-2">
+              <button routerLink="/cars/details/{{carDetail.id}}" type="button" class="btn btn-outline-dark shadow">Details</button>
+              <button routerLink="/cars/details/{{carDetail.id}}" (click)="valueService.isRentCarComponentActive=true" type="button" class="btn btn-outline-dark shadow">Rent Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--<p>You selected car: {{valueService.selectedBrandId}}</p>
+<p>You selected car: {{valueService.selectedColorId}}</p>-->
+
+<!--[src]="'data:image/jpg;base64,'+ car-detail.carImagePathForCard"-->
