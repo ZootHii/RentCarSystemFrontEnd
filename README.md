@@ -3,6 +3,24 @@
   <h1 align="center">RentCarSystem</h1>
 <p align="center">
   <h4 align="center">Angular Rent Car System Front-End.</h4>
+  
+  
+  
+<p align="center">
+   <img width="600" height="388" src="https://user-images.githubusercontent.com/34456517/114269242-836b5080-9a0e-11eb-9f12-a4a493a51b87.gif">
+</p>
+<p align="center">
+   <img width="600" height="388" src="https://user-images.githubusercontent.com/34456517/114269243-85cdaa80-9a0e-11eb-8f0e-aff5e2aa7a41.gif">
+</p>
+<p align="center">
+   <img width="600" height="388" src="https://user-images.githubusercontent.com/34456517/114269245-86fed780-9a0e-11eb-8487-7007398374b5.gif">
+</p>
+<p align="center">
+   <img width="600" height="388" src="https://user-images.githubusercontent.com/34456517/114269247-88c89b00-9a0e-11eb-8e2f-813a296c334b.gif">
+</p>
+<p align="center">
+   <img width="600" height="388" src="https://user-images.githubusercontent.com/34456517/114269248-89613180-9a0e-11eb-9379-b96a3078bafd.gif">
+</p>
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.6.
 
