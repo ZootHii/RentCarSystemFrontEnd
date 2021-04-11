@@ -1,0 +1,12 @@
+
+<form *ngIf="!isLoggedIn" [formGroup]="loginForm" class="d-flex">
+  <input class="form-control me-2" formControlName="eMail" type="email" placeholder="Email address" aria-label="Email">
+  <input class="form-control me-2" formControlName="password" type="password" placeholder="Password" aria-label="Password">
+  <button (click)="login()" class="btn btn-outline-success me-1">Login</button>
+  <button routerLink="/register" class="btn btn-outline-success me-1">Register</button>
+</form>
+
+<form *ngIf="isLoggedIn" class="d-flex">
+  <button routerLink="/user/edit" class="btn btn-outline-success px-xxl-3 me-4">{{userName}}</button>
+  <button (click)="logout()" class="btn btn-outline-danger px-xxl-2 me-2">Log Out</button>
+</form>

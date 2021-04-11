@@ -1,6 +1,6 @@
 export interface CreditCard {
   id: number
-  userId: number
+  customerId: number
   nameOnCard: string
   cardNumber: number
   expirationDate: string

@@ -1,0 +1,45 @@
+<body class="text-center">
+<main class="form-signin">
+  <form [formGroup]="registerForm">
+    <h1 class="h3 mb-3 fw-normal">Register</h1>
+    <div class="form-floating pt-2">
+      <input
+        type="text"
+        class="form-control"
+        id="firstName"
+        formControlName="firstName"
+      />
+      <label for="firstName">Name</label>
+    </div>
+    <div class="form-floating pt-2">
+      <input
+        type="text"
+        class="form-control"
+        id="lastName"
+        formControlName="lastName"
+      />
+      <label for="lastName">Surname</label>
+    </div>
+    <div class="form-floating pt-2">
+      <input
+        type="email"
+        class="form-control"
+        id="eMail"
+        formControlName="eMail"
+      />
+      <label for="eMail">Email address</label>
+    </div>
+    <div class="form-floating pt-2">
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        formControlName="password"
+      />
+      <label for="password">Password</label>
+    </div>
+    <button (click)="register()" class="w-100 btn btn-lg btn-primary mt-4">Register</button>
+    <p class="mt-5 mb-3 text-muted">&copy; ZootHii</p>
+  </form>
+</main>
+</body>

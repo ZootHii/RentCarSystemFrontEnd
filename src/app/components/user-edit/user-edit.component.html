@@ -1,0 +1,64 @@
+<body class="text-center">
+<main class="form-signin">
+  <form *ngIf="dataLoaded==true" [formGroup]="userEditForm">
+    <h1 class="h3 mb-3 fw-normal">Edit Profile</h1>
+    <div class="form-floating pt-2">
+      <input
+        type="text"
+        class="form-control"
+        id="firstName"
+        formControlName="firstName"
+      />
+      <label for="firstName">Name</label>
+    </div>
+    <div class="form-floating pt-2">
+      <input
+        type="text"
+        class="form-control"
+        id="lastName"
+        formControlName="lastName"
+      />
+      <label for="lastName">Surname</label>
+    </div>
+    <div class="form-floating pt-2">
+      <input
+        type="email"
+        class="form-control"
+        id="eMail"
+        formControlName="eMail"
+      />
+      <label for="eMail">Email address</label>
+    </div>
+    <div class="form-floating pt-2">
+      <input
+        type="email"
+        class="form-control"
+        id="companyName"
+        formControlName="companyName"
+      />
+      <label for="companyName">Company</label>
+    </div>
+    <div class="form-floating pt-2">
+      <input
+        type="password"
+        class="form-control"
+        id="currentPassword"
+        formControlName="currentPassword"
+      />
+      <label for="currentPassword">Current Password - You must enter your password to edit.</label>
+    </div>
+    <div class="form-floating pt-2">
+      <input
+        type="password"
+        class="form-control"
+        id="newPassword"
+        formControlName="newPassword"
+      />
+      <label for="newPassword">New Password -> If you don't want to change password leave empty.</label>
+    </div>
+    <button (click)="updateUser()" class="w-100 btn btn-lg btn-primary mt-4">Update Account</button>
+    <button (click)="deleteUser()" class="w-100 btn btn-lg btn-danger mt-4">Delete Account</button>
+    <p class="mt-5 mb-3 text-muted">&copy; ZootHii</p>
+  </form>
+</main>
+</body>

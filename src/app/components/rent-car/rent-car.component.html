@@ -11,7 +11,10 @@
       <h1 class="display-5 fw-bold">Rent The {{carDetails.brandName}}</h1>
       <p class="ms-1" style="font-size: 77%; color: crimson">You can rent at least 2 hours.</p>
     </div>
-    <button (click)="valueService.isRentCarComponentActive=false" type="button" class="btn-close" aria-label="Close"></button>
+    <div>
+      <button (click)="setSavedCreditCard()" class="btn btn-info me-lg-5">Saved Card</button>
+      <button (click)="valueService.isRentCarComponentActive=false" type="button" class="btn-close me-lg-3" aria-label="Close"></button>
+    </div>
   </div>
   <div class="modal-body">
     <form [formGroup]="rentalForm">
@@ -45,6 +48,7 @@
           class="form-control"
           formControlName="nameOnCard"
           required
+          #nameOnCard
         />
       </div>
       <div class="mb-3">
