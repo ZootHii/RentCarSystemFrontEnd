@@ -1,4 +1,11 @@
- [Test Videos](Test%20Videos)
+<a href="https://www.linkedin.com/in/zoothii/">
+<img alt="ZootHii Linkedin" src="https://user-images.githubusercontent.com/34456517/108375286-dd237b80-7212-11eb-981a-c5391863b7f6.png" width=45" height="45">
+</a>
+
+<a href="mailto:ahmet-yildirim_5858@outlook.com"><img src="https://img.shields.io/badge/Outlook-0078D4.svg?&style=for-the-badge&logo=microsoft%20outlook&logoColor=white" /></a>
+
+
+[Test Videos](Test%20Videos)
 <br/>
 <p align="center">
   <h1 align="center">RentCarSystem</h1>
